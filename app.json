@@ -4,11 +4,11 @@
     "slug": "zypo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash-logo.png",
+    "icon": "./assets/Logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-logo.png",
+      "image": "./assets/zypoLogo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

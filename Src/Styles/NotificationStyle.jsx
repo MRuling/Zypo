@@ -1,8 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
+
+const {width,height} = Dimensions.get('window');
 const styles = StyleSheet.create({
+   
  container:{
-
+   width:width,
+   height:height
  },
  notificationbodyCenter:{
     marginTop:30,
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
  },
  chevron:{
    top:10,
-   left:150
+   left:150,
  },
  chevronS:{
    top:10,

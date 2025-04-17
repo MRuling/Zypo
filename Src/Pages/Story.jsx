@@ -34,11 +34,6 @@ const StoryRing = ({ imgUrl }) => {
   };
 
   useEffect(() => {
-
-
-
-
-    
     if (clicked && !viewed) {
       animateRotation();
       setTimeout(() => {

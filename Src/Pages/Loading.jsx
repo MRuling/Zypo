@@ -1,22 +1,39 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-const Loading = ({onFinish,navigation}) => {
+const Loading = ({ navigation }) => {
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        // Burada internetten veri çekiyormuş gibi simüle ettik
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+        const data = await response.json();
+        console.log('Yüklenen veri:', data);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-           onFinish();
-        navigation.navigate('TabNavigator');
-        },3000)
-        return () => clearTimeout(timer);
-    },[])
+        navigation.navigate('TabNavigator'); // veri geldiyse yönlendir
+      } catch (error) {
+        console.error('İnternet bağlantı hatası:', error);
+        // İstersen hata ekranına yönlendirebilirsin
+      }
+    };
+
+    loadData();
+  }, []);
+
   return (
-    <View>
-      <ActivityIndicator size={'large'}  color={'white'} />
+    <View style={styles.container}>
+      <ActivityIndicator size="large" color="white" />
     </View>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000', // örnek
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
